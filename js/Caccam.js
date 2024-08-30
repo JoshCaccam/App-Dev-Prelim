@@ -54,48 +54,5 @@ function removeActiveContent() {
       creator.classList.remove('active')
    });
 }
- //Briones Slider
- document.addEventListener('DOMContentLoaded', () => {
-    let currentIndex = 0;
-    const slides = document.querySelectorAll('.Members_cards1');
-    const dots = document.querySelectorAll('.owl-dot');
-    const totalSlides = slides.length;
 
-    function updateSlider(index) {
-        if (index >= totalSlides) {
-            currentIndex = 0;
-        } else if (index < 0) {
-            currentIndex = totalSlides - 1;
-        } else {
-            currentIndex = index;
-        }
-
-        slides.forEach((slide, i) => {
-            slide.style.display = (i === currentIndex) ? 'block' : 'none';
-        });
-
-        dots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === currentIndex);
-        });
-    }
-
-    function nextSlide() {
-        updateSlider(currentIndex + 1);
-    }
-
-    function prevSlide() {
-        updateSlider(currentIndex - 1);
-    }
-
-    updateSlider(currentIndex);
-
-    document.querySelector('.owl-dot').addEventListener('click', prevSlide);
-    document.querySelector('.owl-dot').addEventListener('click', nextSlide);
-
-    dots.forEach((dot, i) => {
-        dot.addEventListener('click', () => {
-            updateSlider(i);
-        });
-    });
-});
 
